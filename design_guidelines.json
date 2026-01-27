@@ -1,0 +1,161 @@
+{
+  "brand_identity": {
+    "name": "RARE",
+    "core_values": ["Bold", "Minimal", "Experimental", "Confident", "High-end"],
+    "visual_style": "Neo-brutalist luxury + modern editorial",
+    "emotional_tone": "Exclusive, Expensive, Intentional, Aggressive",
+    "target_audience": "Fashion-forward, confident buyers, anti-mass-market"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Oswald, sans-serif",
+      "weights": ["700", "500"],
+      "usage": "Hero titles, Section headers, Product names",
+      "tracking": "tracking-tighter",
+      "transform": "uppercase"
+    },
+    "body": {
+      "font_family": "Manrope, sans-serif",
+      "weights": ["400", "600"],
+      "usage": "Paragraphs, descriptions, reviews"
+    },
+    "technical": {
+      "font_family": "JetBrains Mono, monospace",
+      "weights": ["400"],
+      "usage": "Price tags, specs, metadata, navigation links",
+      "size": "text-xs or text-sm"
+    }
+  },
+  "colors": {
+    "palette": {
+      "background": "#050505",
+      "foreground": "#EDEDED",
+      "card": "#0A0A0A",
+      "card_foreground": "#FFFFFF",
+      "primary": "#D00000",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#1A1A1A",
+      "secondary_foreground": "#A0A0A0",
+      "accent": "#D00000",
+      "accent_foreground": "#FFFFFF",
+      "border": "#333333",
+      "input": "#1A1A1A",
+      "ring": "#D00000"
+    },
+    "usage_rules": [
+      "Background must be Deep Obsidian (#050505), never pure black.",
+      "Primary Red (#D00000) used ONLY for high-impact CTAs and hover states.",
+      "Borders should be subtle (#333333) but sharp (0px radius).",
+      "Text hierarchy: Headings (White), Body (Off-white #EDEDED), Meta (Grey #A0A0A0)."
+    ]
+  },
+  "layout": {
+    "grid_system": "The 'Tetris' Grid (Mode A)",
+    "spacing": "Generous. Use p-12, p-24, p-32. Minimum gap-8.",
+    "container_style": "Sharp edges (rounded-none). No soft shadows.",
+    "alignment": "Asymmetrical. Offset text blocks. Overlapping images.",
+    "z_index_strategy": "Layered depth. Text over images. Floating 3D elements."
+  },
+  "components": {
+    "buttons": {
+      "style": "Sharp edges, uppercase text, mono font.",
+      "variants": [
+        "Solid: bg-white text-black hover:bg-red-600 hover:text-white transition-colors duration-300",
+        "Outline: border border-white/20 text-white hover:bg-white hover:text-black",
+        "Ghost: text-white/60 hover:text-white hover:tracking-widest transition-all"
+      ]
+    },
+    "cards": {
+      "style": "Flat, border-only or dark bg. No shadow. 3D tilt on hover.",
+      "interaction": "Image scale-up on hover. Meta info reveal."
+    },
+    "navigation": {
+      "style": "Floating glass or sticky solid top bar. Minimal links.",
+      "logo": "Text-based 'RARE' in massive bold font."
+    },
+    "marquee": {
+      "style": "Infinite scroll text. Large outline font. 'RARE IS NOT FOR EVERYONE'."
+    }
+  },
+  "motion": {
+    "library": "Framer Motion + Lenis (Smooth Scroll)",
+    "principles": [
+      "Scroll-triggered reveals (text lines stagger in).",
+      "Parallax on images (images move slower than scroll).",
+      "Hover: Snappy, aggressive changes (invert colors).",
+      "Page Transition: Wipe or fade with noise overlay."
+    ],
+    "specifics": {
+      "hero_text": "Staggered character reveal.",
+      "product_card": "3D tilt (perspective-1000).",
+      "cart": "Slide-in from right (spring physics)."
+    }
+  },
+  "visual_enhancers": {
+    "textures": "Noise overlay (opacity 0.05) on all backgrounds.",
+    "borders": "1px solid borders. Visible grid lines in sections.",
+    "cursors": "Custom cursor (dot or crosshair) that expands on hover.",
+    "3d_elements": "Floating jacket/hoodie in Hero (React Three Fiber or Spline)."
+  },
+  "media": {
+    "image_style": "High contrast, flash photography, grain, moody, editorial.",
+    "video": "Autoplay loops, muted, grayscale or desaturated.",
+    "image_urls": {
+      "hero": [
+        {
+          "url": "https://images.unsplash.com/photo-1736284162276-d27cf9e9ec54?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Blurry avant-garde model in dark room",
+          "category": "hero_background"
+        }
+      ],
+      "products": [
+        {
+          "url": "https://images.unsplash.com/photo-1648320397369-85ab3fa368bc?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Black hoodie standing in dark",
+          "category": "product_hoodie"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1489972536996-943907ea1cd8?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Blue zip-up jacket faceless",
+          "category": "product_jacket"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1499971442178-8c10fdf5f6ac?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Urban sweatshirt on hanger",
+          "category": "product_sweatshirt"
+        }
+      ],
+      "story": [
+        {
+          "url": "https://images.unsplash.com/photo-1738247999939-de1b5d41626e?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Woman in black dress moody portrait",
+          "category": "founder_portrait"
+        }
+      ],
+      "textures": [
+        {
+          "url": "https://images.unsplash.com/photo-1659051637855-cb883350313a?crop=entropy&cs=srgb&fm=jpg&q=85",
+          "alt": "Concrete wall texture",
+          "category": "background_texture"
+        }
+      ]
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. SETUP: Install 'lenis' for smooth scrolling immediately. It is non-negotiable for the luxury feel.",
+    "2. FONTS: Import 'Oswald' and 'Manrope' and 'JetBrains Mono' from Google Fonts.",
+    "3. THEME: Force Dark Mode. Do not create a light mode toggle. The brand is dark.",
+    "4. LAYOUT: Use the 'Tetris' grid for the collection section. Do not use a simple 3-column grid.",
+    "5. COMPONENTS: Customize Shadcn components to remove rounded corners (rounded-none) and soft shadows.",
+    "6. IMAGES: Use the provided Unsplash URLs. Do not use placeholders.",
+    "7. 3D: If implementing the 3D hero, use a simple R3F canvas with a floating mesh if no GLTF is available, or use the 'product_hoodie' image with a parallax depth effect as a fallback.",
+    "8. TESTING: Add data-testid to all interactive elements (buttons, inputs, links)."
+  ],
+  "universal_guidelines": [
+    "Avoid 'AI slop' (generic centered layouts, gradients).",
+    "Use 2-3x more spacing than usual.",
+    "Micro-animations on everything (hover, focus, active).",
+    "No 'transparent' backgrounds without blur/scrim.",
+    "Use 'sonner' for toasts."
+  ]
+}

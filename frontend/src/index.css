@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Manrope:wght@400;600&family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 2 2% 2%;
+        --foreground: 0 0% 93%;
+        --card: 0 0% 4%;
+        --card-foreground: 0 0% 100%;
+        --popover: 0 0% 4%;
+        --popover-foreground: 0 0% 93%;
+        --primary: 0 100% 41%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 0 0% 10%;
+        --secondary-foreground: 0 0% 63%;
+        --accent: 0 100% 41%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 20%;
+        --input: 0 0% 10%;
+        --ring: 0 100% 41%;
+        --radius: 0rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+    
+    body {
+        @apply bg-[#050505] text-foreground;
+        font-family: 'Manrope', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: relative;
+    }
+    
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    #root {
+        position: relative;
+        z-index: 2;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+    }
+    
+    .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply bg-white text-black uppercase font-mono text-sm px-8 py-4 rounded-none border-none cursor-pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .btn-primary:hover {
+        @apply bg-[#D00000] text-white;
+        transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+        @apply border border-white/20 text-white uppercase font-mono text-sm px-8 py-4 rounded-none bg-transparent cursor-pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .btn-outline:hover {
+        @apply bg-white text-black;
+    }
+    
+    .btn-ghost {
+        @apply text-white/60 uppercase font-mono text-sm px-6 py-3 rounded-none bg-transparent border-none cursor-pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .btn-ghost:hover {
+        @apply text-white;
+        letter-spacing: 0.1em;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
