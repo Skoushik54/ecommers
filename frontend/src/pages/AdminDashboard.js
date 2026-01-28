@@ -417,28 +417,36 @@ const AdminDashboard = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <StatsCard label="Total Revenue" value="$12,450.00" trend="12%" trendUp={true} />
-              <StatsCard label="Active Orders" value={orders.filter(o => o.status === 'pending').length} trend="5%" trendUp={true} />
-              <StatsCard label="Total Products" value={products.length} trend="2%" trendUp={false} />
+              <StatsCard label="Total Revenue" value={`$${orders.reduce((acc, o) => acc + (o.total || 0), 0).toFixed(2)}`} trend="--" trendUp={true} />
+              <StatsCard label="Active Orders" value={orders.filter(o => o.status === 'pending').length} trend={orders.length > 0 ? `${((orders.filter(o => o.status === 'pending').length / orders.length) * 100).toFixed(0)}%` : "0%"} trendUp={true} />
+              <StatsCard label="Total Products" value={products.length} trend="--" trendUp={true} />
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
               <div className="bg-[#0A0A0A] border border-white/10 p-6 rounded-xl">
                 <h3 className="text-white font-bold uppercase mb-4">Sales Analytics</h3>
                 <div className="h-64 flex items-center justify-center border border-dashed border-white/10 rounded-lg">
-                  <p className="text-white/20 font-mono">CHART VISUALIZATION PLACEHOLDER</p>
+                  <p className="text-white/20 font-mono">CHART VISUALIZATION COMING SOON</p>
                 </div>
               </div>
               <div className="bg-[#0A0A0A] border border-white/10 p-6 rounded-xl">
                 <h3 className="text-white font-bold uppercase mb-4">Recent Activity</h3>
                 <div className="space-y-4">
-                  {[1, 2, 3].map(i => (
-                    <div key={i} className="flex gap-4 items-center">
-                      <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                      <p className="text-white/60 text-sm">New order received from <span className="text-white">Customer #{i}</span></p>
-                      <span className="ml-auto text-white/20 text-xs font-mono">2m ago</span>
+                  {orders.slice(0, 5).map(order => (
+                    <div key={order.order_id} className="flex gap-4 items-center">
+                      <div className={`w-2 h-2 rounded-full ${order.status === 'pending' ? 'bg-yellow-500' : 'bg-green-500'}`}></div>
+                      <div className="flex-1">
+                        <p className="text-white/60 text-sm">
+                          Order <span className="text-white font-mono">#{order.order_id.slice(-6).toUpperCase()}</span> - <span className="capitalize">{order.status}</span>
+                        </p>
+                        <p className="text-white/20 text-xs">${order.total?.toFixed(2)} • {order.items?.length} items</p>
+                      </div>
+                      <span className="ml-auto text-white/20 text-xs font-mono">
+                        {new Date(order.created_at).toLocaleDateString()}
+                      </span>
                     </div>
                   ))}
+                  {orders.length === 0 && <p className="text-white/20 text-sm font-mono">No recent activity</p>}
                 </div>
               </div>
             </div>

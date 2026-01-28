@@ -486,7 +486,8 @@ const AddressesTab = ({ API, user }) => {
                         <button onClick={() => setDeleteConfirm(addr)} className="absolute top-4 right-4 text-white/40 hover:text-red-500"><X size={16} /></button>
                         <span className="bg-white/10 text-white text-[10px] px-2 py-1 rounded uppercase mb-2 inline-block">{addr.label}</span>
                         <p className="text-white font-bold">{addr.full_name}</p>
-                        <p className="text-white/60 text-sm">{addr.street}</p>
+                        <p className="text-white/60 text-sm">{addr.phone}</p>
+                        <p className="text-white/60 text-sm mt-1">{addr.street}</p>
                         <p className="text-white/60 text-sm">{addr.city}, {addr.state}, {addr.zip_code}</p>
                         <p className="text-white/60 text-sm">{addr.country}</p>
                     </div>
@@ -519,9 +520,15 @@ const AddressesTab = ({ API, user }) => {
                                         <label className="text-white/60 text-xs uppercase block mb-1">Address Label</label>
                                         <input placeholder="e.g. Home, Work" value={newAddress.label} onChange={e => setNewAddress({ ...newAddress, label: e.target.value })} className="input-field w-full bg-[#151515] text-white p-3 border border-white/10 rounded" />
                                     </div>
-                                    <div>
-                                        <label className="text-white/60 text-xs uppercase block mb-1">Full Name</label>
-                                        <input placeholder="Receiver's Name" value={newAddress.full_name} onChange={e => setNewAddress({ ...newAddress, full_name: e.target.value })} className="input-field w-full bg-[#151515] text-white p-3 border border-white/10 rounded" />
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="text-white/60 text-xs uppercase block mb-1">Full Name</label>
+                                            <input placeholder="Receiver's Name" value={newAddress.full_name} onChange={e => setNewAddress({ ...newAddress, full_name: e.target.value })} className="input-field w-full bg-[#151515] text-white p-3 border border-white/10 rounded" />
+                                        </div>
+                                        <div>
+                                            <label className="text-white/60 text-xs uppercase block mb-1">Phone Number</label>
+                                            <input placeholder="+91..." value={newAddress.phone || ''} onChange={e => setNewAddress({ ...newAddress, phone: e.target.value })} className="input-field w-full bg-[#151515] text-white p-3 border border-white/10 rounded" />
+                                        </div>
                                     </div>
                                     <div>
                                         <label className="text-white/60 text-xs uppercase block mb-1">Street Address</label>

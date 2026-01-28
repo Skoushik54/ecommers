@@ -66,6 +66,8 @@ const CheckoutPage = () => {
     fetchCart();
   }, [API, navigate, user]);
 
+
+
   const calculateTotal = () => {
     return cart.items?.reduce((sum, item) => {
       const product = products[item.product_id];
@@ -165,7 +167,8 @@ const CheckoutPage = () => {
       city: addr.city,
       state: addr.state,
       postal_code: addr.zip_code,
-      country: addr.country
+      country: addr.country,
+      phone: addr.phone || ''
     });
     toast.info("Address populated from " + addr.label);
   };
