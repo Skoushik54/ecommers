@@ -179,16 +179,14 @@ const LoginPage = () => {
               />
             </div>
 
-            {/* Fallback/Mock for Dev if no Client ID */}
-            {!process.env.REACT_APP_GOOGLE_CLIENT_ID && (
-              <button
-                type="button"
-                onClick={handleGoogleMockLogin}
-                className="mt-2 text-xs text-white/40 underline hover:text-white"
-              >
-                Detailed Mock Login (Dev Only)
-              </button>
-            )}
+            {/* Always show Mock Login for troubleshooting */}
+            <button
+              type="button"
+              onClick={handleGoogleMockLogin}
+              className="mt-2 text-xs text-white/40 underline hover:text-white"
+            >
+              Detailed Mock Login (Dev Only)
+            </button>
 
             <div className="relative">
               <div className="absolute inset-0 flex items-center">

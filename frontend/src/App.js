@@ -27,7 +27,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
-const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID || "MOCK_CLIENT_ID";
+const GOOGLE_CLIENT_ID = (process.env.REACT_APP_GOOGLE_CLIENT_ID || "MOCK_CLIENT_ID").trim();
 
 export const AppContext = React.createContext();
 

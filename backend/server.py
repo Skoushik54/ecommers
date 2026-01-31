@@ -471,7 +471,8 @@ async def send_otp(request: Request):
             """
             msg.attach(MIMEText(body, 'html'))
 
-            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server = smtplib.SMTP('smtp.gmail.com', 587, timeout=10) # 10s timeout
+            server.set_debuglevel(1) # See SMTP debug output
             server.starttls()
             server.login(smtp_user, smtp_pass)
             text = msg.as_string()
@@ -480,7 +481,7 @@ async def send_otp(request: Request):
             print(f"Email sent to {email}")
             email_sent = True
         except Exception as e:
-            print(f"Failed to send email: {e}")
+            print(f"Failed to send email (timeout/auth): {e}")
 
     # Return the code in the response for Dev Mode (or if email failed)
     return {
