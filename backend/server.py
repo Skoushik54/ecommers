@@ -487,7 +487,7 @@ async def send_otp(request: Request):
     return {
         "success": True, 
         "message": "OTP sent", 
-        "dev_code": code if not email_sent else None # Only hide if real email sent? No, keep it for now for safety
+        "dev_code": code # Always return code for troubleshooting deployment
     }
 
 @api_router.post("/auth/verify-otp")
